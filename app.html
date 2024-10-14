@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <label><input type="number" id="input1" placeholder="Enter a number"></label>
+    <button type="button" id="button1">Add</button>
+    <button type="button" id="button2">Display</button>
+    <p id="result"></p>
+    <script>
+        let ar = [];
+        function ToArray() {
+            let ele = document.getElementById("input1");
+            ar[ar.length] = parseInt(ele.value);
+            ele.value = "";
+        }
+        function Display() {
+            let s = "";
+            ar.forEach(function (v, i) {
+                s += `Element ${i}: ${v} <br>`
+            })
+            document.getElementById("result").innerHTML = s;
+            ar = [];
+        }
+        
+        document.getElementById("button1").addEventListener("click", ToArray);
+        document.getElementById("button2").addEventListener("click", Display);
+    </script>
+</body>
+</html>
